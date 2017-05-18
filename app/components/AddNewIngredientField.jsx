@@ -1,3 +1,5 @@
+import React from 'react'
+
 class DocumentInput extends React.Component {
   render() {
     return <input 
@@ -6,8 +8,7 @@ class DocumentInput extends React.Component {
     />;
   }
 }
-
-class DocumentsFieldSet extends React.Component{
+export class DocumentsFieldSet extends React.Component{
   constructor(props){
     super(props);
 
@@ -38,7 +39,3 @@ class DocumentsFieldSet extends React.Component{
   }
 }
 
-ReactDOM.render(
-  <DocumentsFieldSet />,
-  document.getElementById('container')
-);

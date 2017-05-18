@@ -1,9 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import {Header} from './components/Header.jsx'
-import {Footer} from './components/Footer.jsx'
-import {Form} from './components/Form.jsx'
+import {Header, Footer, Form, DocumentsFieldSet} from './components'
 
 // CSS IMPORTS
 
@@ -28,6 +26,7 @@ class Application extends React.Component ::
           <div className="row">
             <Form />
           </div>
+            <DocumentsFieldSet />
           <div className="row">
             <Footer />
           </div>
