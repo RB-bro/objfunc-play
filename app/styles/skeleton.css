@@ -53,14 +53,16 @@
   .container {
     width: 80%; }
   .column,
-  .columns {}
+  .columns { margin-right: 2%; }
   .column:first-child,
   .columns:first-child {
     margin-left: 0; }
 
   .one.column,
   .one.columns                    { width: 4.66666666667%; }
+  .oneAndOneHalf.columns          { width: 9%;             }
   .two.columns                    { width: 13.3333333333%; }
+  .twoAndOneHalf.columns          { width: 18%;            }  
   .three.columns                  { width: 22%;            }
   .four.columns                   { width: 30.6666666667%; }
   .five.columns                   { width: 39.3333333333%; }
@@ -76,8 +78,6 @@
   .two-thirds.column              { width: 65.3333333333%; }
 
   .one-half.column                { width: 48%; }
-
-  .ingredient.columns             { width: 61%; margin-left: 4%; margin-right: 4%;}
 
   /* Offsets */
   .offset-by-one.column,

@@ -1,5 +1,6 @@
 import React from 'react'
 import {Button} from './Button.jsx'
+import Testing from './Testing.jsx'
 
 export class Form extends React.Component ::
   constructor (props) ::
@@ -33,17 +34,15 @@ export class Form extends React.Component ::
           </div>
         </div>        
         <div className="row">
-          <div className="five columns">
-            <label for="recipeTime">Ingredients</label>
-            <input className="two columns recipeInput" placeholder="#" id="ingredientNum"/>
-            <input className="ingredient columns recipeInput" type="title" placeholder="Ingredient" id="ingredient"/>
+            <Testing />        
+        </div>
+        <div className="row">
             <div className="two columns">
-              <button onClick={() => alert('click')}>
-              {this.state.value}
+              <button onClick={() => this.setState({value: <Testing />})}>
+                {this.state.value}
               </button>
             </div>            
-          </div>
-        </div>        
+        </div>                
         <div className="row">
           <div className="eight columns">          
             <label for="exampleMessage">Message</label>
