@@ -4,3 +4,4 @@ Object.assign @ exports
   , require('./Form.jsx')
   , require('./AddNewIngredientField.jsx')
   , require('./Ingredients.jsx')
+  , require('./Recipe.jsx')

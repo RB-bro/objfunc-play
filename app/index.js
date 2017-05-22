@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import {Header, Footer, Form, DocumentsFieldSet, Ingredients} from './components'
+import {Header, Footer, Form, DocumentsFieldSet, Ingredients, ViewRecipe} from './components'
 
 // CSS IMPORTS
 
@@ -21,6 +21,7 @@ class Application extends React.Component ::
           <div className="row">
             <Header input="New app!"/>
           </div>
+          <ViewRecipe />
           <div className="row">
             <Ingredients />
           </div>
