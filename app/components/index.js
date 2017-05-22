@@ -3,3 +3,4 @@ Object.assign @ exports
   , require('./Footer.jsx')
   , require('./Form.jsx')
   , require('./AddNewIngredientField.jsx')
+  , require('./Ingredients.jsx')

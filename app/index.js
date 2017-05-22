@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import {Header, Footer, Form, DocumentsFieldSet} from './components'
+import {Header, Footer, Form, DocumentsFieldSet, Ingredients} from './components'
 
 // CSS IMPORTS
 
@@ -18,11 +18,15 @@ class Application extends React.Component ::
     let sayHello = () => alert @ "Hello"
     return @ 
         <div className="container">
-          {/*
-          */}
           <div className="row">
             <Header input="New app!"/>
           </div>
+          <div className="row">
+            <Ingredients />
+          </div>
+
+
+          {/*
           <div className="row">
             <Form />
           </div>
@@ -32,6 +36,7 @@ class Application extends React.Component ::
           </div>
 
 
+          */}
           {/* Comments!!!! */}
         </div>
 

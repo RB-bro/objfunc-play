@@ -5,10 +5,22 @@ import Testing from './Testing.jsx'
 export class Form extends React.Component ::
   constructor (props) ::
     super(props)
-    this.state = {
-    value: "add",
-    };
+      this.state = {
+        ingredients: ['thyme', 'sugar', 'ass'],
+        idx: 0,
+        name: 'bacon',
+      };
+
+  addIngredient = (obj) => ::
+    console.log @ obj
+    oldIngredients = this.state.ingredients
+    newIngredients = oldIngredients.append(obj.name)
+    this.setState @ @{} ingredients: newIngredients, idx:this.state.idx + 1
+
   render() ::
+    const renderTesting = (item, idx) => (<Testing num={idx} title={item}/>)
+    let ingredients = this.state.ingredients.map @ renderTesting
+    console.log @ ingredients
     return @
       <form>
         <div className="row">
@@ -38,10 +50,11 @@ export class Form extends React.Component ::
         </div>
         <div className="row">
             <div className="two columns">
-              <button onClick={() => this.setState({value: <Testing />})}>
-                {this.state.value}
+              <button onClick={() => this.addIngredient({ingredientName: this.state.name})}>
+                Add Ingredient
               </button>
             </div>            
+            {ingredients}
         </div>                
         <div className="row">
           <div className="eight columns">          
