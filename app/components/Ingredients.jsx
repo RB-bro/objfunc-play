@@ -91,22 +91,33 @@ class TotalsView extends Component ::
   constructor(props) ::
     super(props)
 
+  *_buildTotals() ::
+    for let ingredient of this.props.ingredients ::
+      yield @[] 
+        ingredient.carbs
+        , ingredient.fat
+        , ingredient.protein
+        , ingredient.calories
+
   buildTotals() ::
-    let nutritionTotals = this.props.ingredients.map @ 
-      (item) => [item.carbs, item.fat, item.protein, item.calories]
-    // Initialize the total variables
     let protein = 0
       , carbs = 0
       , calories = 0
       , fat = 0
 
     // for each four item list in our list of ingredients
-    for let e of nutritionTotals ::
-      // increment the corresponding nutrient by the new amount
-      carbs += Number(e[0]) 
-      fat += Number(e[1])
-      protein += Number(e[2])
-      calories += Number(e[3])
+      // here e is a four item list
+      //
+    let totals = this._buildTotals()
+    do ::
+      let next = totals.next().value
+      console.log @ next
+      carbs += Number(next[0]) 
+      fat += Number(next[1])
+      protein += Number(next[2])
+      calories += Number(next[3])
+    while !totals.next().done ::
+
     return {carbs, fat, protein, calories}
 
   render() ::
