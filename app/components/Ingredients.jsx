@@ -137,10 +137,9 @@ class TotalsView extends Component ::
     let nutritionTotals = this.props.ingredients.map @ 
       (item) => item.getInfo()
 
-    let test = this.reduceTotals @ nutritionTotals
+    return this.reduceTotals @ nutritionTotals
       , @{} carbs:0 , fat:0 , protein: 0 , calories: 0, ingredientAmount:0
     
-    return  test
       
   render() ::
     let {carbs, fat, protein, calories, ingredientAmount} = this.buildTotals()
