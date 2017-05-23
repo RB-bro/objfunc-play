@@ -122,42 +122,27 @@ class TotalsView extends Component ::
   constructor(props) ::
     super(props)
 
-  *incrementTotals(initialArray) ::
-    let protein = 0
-      , carbs = 0
-      , calories = 0
-      , fat = 0
-      , ingredientAmount = 0
-      , ingredientUnit = 0
+  reduceTotals(iterable, initial) ::
+    return Array.from(iterable)
+      .reduce @ _sumByKey, initial
 
-    const inc = (lst) => ::
-      return @{} carbs: carbs += Number(lst[0]) 
-        , fat: fat += Number(lst[1])
-        , protein: protein += Number(lst[2])
-        , calories: calories += Number(lst[3])
-        , ingredientAmount: ingredientAmount +=  Number(lst[4])
-        , ingredientUnti: ingredientUnit += Number(lst[5])
-
-    let nutritionInfo = yield inc @ initialArray
-    while true ::
-      nutritionInfo = yield inc @ nutritionInfo
+    function _sumByKey(prevObj, nextObj) ::
+      const res = {}
+      const defaultZero = (num) => Number(num || 0)
+      for const key in initial ::
+        res[key] = defaultZero(prevObj[key]) + defaultZero(nextObj[key])
+      return res
 
   buildTotals() ::
     let nutritionTotals = this.props.ingredients.map @ 
-      (item) => [item.carbs, item.fat, item.protein, item.calories, item.ingredientAmount]
-    let totals
+      (item) => item.getInfo()
 
-    let initialArray = nutritionTotals[0]
-    let inc = this.incrementTotals(initialArray)
-    for let e of nutritionTotals ::
-      totals = inc.next(e)
-
-    return undefined == totals.value ? {} : totals.value
-
+    let test = this.reduceTotals @ nutritionTotals
+      , @{} carbs:0 , fat:0 , protein: 0 , calories: 0, ingredientAmount:0
+    
+    return  test
+      
   render() ::
-    // We got a list of Ingredient instances, so we are going
-      // to map through and create four element lists for
-      // each ingredient, containing each number
     let {carbs, fat, protein, calories, ingredientAmount} = this.buildTotals()
     return (
         <div className="container">
@@ -183,13 +168,14 @@ class TotalsView extends Component ::
 class Ingredient ::
   constructor(config) ::
     Object.assign @ this, config
-    /*
-    this.name = config.name
-    this.carbs = config.carbs + "g"
-    this.protein = config.protein + "g"
-    this.fat = config.fat + "g"
-    this.calories = config.calories + "kcal"
-    */
+
+  getInfo()::
+    return @{} carbs: this.carbs
+        , fat: this.fat
+        , protein: this.protein
+        , calories: this.calories 
+        , ingredientAmount: this.ingredientAmount
+
 
 export class IngredientListing extends Component ::
   constructor(props) ::
