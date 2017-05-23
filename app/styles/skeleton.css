@@ -274,7 +274,8 @@ label,
 legend {
   display: block;
   margin-bottom: .5rem;
-  font-weight: 600; }
+  font-weight: 600;
+  white-space: nowrap;}
 noLabel {
   padding-top: 25px;
 }
