@@ -1,22 +1,10 @@
 
 
 import React from 'react'
+import {div, h4} from 'react-hyperscript-helpers'
 
 export class Footer extends React.Component ::
   constructor (props) ::
     super(props)
   render() ::
-    return @ 
-      <div > 
-        <div className="row"> 
-          <div className="four columns u-full-width">
-            <code> Placeholder </code>
-          </div>
-          <div className="four columns u-full-width">
-            <code> was </code>
-          </div>
-          <div className="four columns u-full-width">
-            <code> here </code>
-          </div>
-        </div> 
-      </div> 
+    return div @ {className:"row text-center"}, [h4("pwnage ltd.")] 

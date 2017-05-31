@@ -24,6 +24,9 @@ const output = {
   path: _paths.build
 }
 
+const resolve = {
+  "moduleDirectories":"app"
+}
 
 const rules = [
   {
