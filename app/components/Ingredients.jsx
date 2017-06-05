@@ -52,7 +52,8 @@ export class Ingredients extends Component ::
 
 
   addIngredientClickHandler = (e) => ::
-    this.refs.ingredientname.value == "" 
+    //e.persist()
+    return this.refs.ingredientname.value == "" 
       ? this.warnEmptyTitleField()
       : this.addIngredient()
 

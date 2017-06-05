@@ -22,15 +22,28 @@ class Recipe ::
         self.nutritionFacts = null
 
 
+export class ViewRecipes extends Component ::
+  constructor(props) ::
+    super(props)
+    this.store = this.props.store
+
+  render() ::
+    let view = this.store.getRecipes()
+    console.log @: view, recipes:view._recipes
+    let key = 0
+    let items = view._recipes.map @ item =>
+      div @ {key:key++}, item.name
+    return div @ @[] items
+
 export class InputRecipe extends Component ::
     constructor(props) ::
-        super(props)
-        this.recipeStore = this.props.store
-        this.recipeStore.init()
+      super(props)
+      this.recipeStore = this.props.store
+      this.recipeStore.init()
 
     doThing(evt) ::
       console.log @ evt
-      evt.preventDefault()
+      //evt.preventDefault()
       let view = this.recipeStore.log("Banana patch")
       console.log @ "View from recipestore", view
       console.log @ "Log from recipe store", view._log
@@ -41,9 +54,10 @@ export class InputRecipe extends Component ::
           div @ {className:"four columns"}, 
             @[] label @ "Recipe Title", {for:"recipeTitle"}
               , input @ 
-                {className:"u-full-width recipeInput", type:"title"
-                , placeholder:"What do you want to call this recipe"
-                , id: "recipeTitle"}
+                @{} className:"u-full-width recipeInput", type:"title"
+                  , placeholder:"What do you want to call this recipe"
+                  , id: "recipeTitle"
+                  , ref: "title"
 
         , row @ @[]
             div @ {className:"four columns"}, 

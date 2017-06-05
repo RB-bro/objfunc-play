@@ -1,0 +1,47 @@
+{
+  "recipes":[
+    { "name":"Mexican stuffed avocado"
+    , "description":"blah blah yum"
+    , "ingredients":[
+        { "name":"chicken"
+        , "carbs":0
+        , "fat":7
+        , "calories":123
+        , "protein":12
+        , "ingredientUnit":"ounce"
+        , "ingredientSize":"1"
+        },
+        { "name":"butter"
+        , "carbs":1
+        , "fat":7
+        , "calories":123
+        , "protein":4
+        , "ingredientUnit":"ounce"
+        , "ingredientSize":"1"
+        }
+
+    ]
+    },
+    { "name":"fat bomb"
+    , "description":"blah blah yum"
+    , "ingredients":[
+        { "name":"bacon"
+        , "carbs":0
+        , "fat":7
+        , "calories":123
+        , "protein":12
+        , "ingredientUnit":"ounce"
+        , "ingredientSize":"1"
+        },
+        { "name":"egg"
+        , "carbs":1
+        , "fat":7
+        , "calories":123
+        , "protein":4
+        , "ingredientUnit":"ounce"
+        , "ingredientSize":"1"
+        }
+    ]
+    }
+  ]
+}

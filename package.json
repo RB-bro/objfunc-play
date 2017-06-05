@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "any-observable": "^0.2.0",
+    "json-loader": "^0.5.4",
     "object-functional": "^0.0.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
