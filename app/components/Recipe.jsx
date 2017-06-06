@@ -28,20 +28,19 @@ export class ViewRecipes extends Component ::
     this.store = this.props.store
 
   render() ::
-    let view = this.store.getRecipes()
-    console.log @: view, recipes:view._recipes
+    let recipes = this.store.getRecipes()
+    console.log @: recipes
     let key = 0
-    let items = view._recipes.map @ item =>
+    let items = recipes.map @ item =>
       div @ {key:key++}, item.name
-    return div @ @[] items
+    return div @ [items]
 
 export class InputRecipe extends Component ::
     constructor(props) ::
       super(props)
       this.recipeStore = this.props.store
-      this.recipeStore.init()
 
-    doThing(evt) ::
+    addRecipe(evt) ::
       console.log @ evt
       //evt.preventDefault()
       let view = this.recipeStore.log("Banana patch")
@@ -49,7 +48,7 @@ export class InputRecipe extends Component ::
       console.log @ "Log from recipe store", view._log
 
     render() ::
-      return form @ {onSubmit:(evt)=>this.doThing(evt)}, @[]
+      return form @ {onSubmit:(evt)=>this.addRecipe(evt)}, @[]
         row @ @[]
           div @ {className:"four columns"}, 
             @[] label @ "Recipe Title", {for:"recipeTitle"}
